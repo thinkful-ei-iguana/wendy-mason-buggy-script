@@ -20,8 +20,9 @@ linesInSource.forEach(line => {
   // get the content of the lines, first word is a filename, rest is content
   const [filename, ...contentArr] = line.split(" ");
   // construct the full path for the file to create
+  const newContent = contentArr.join(" ");
   const newFilePath = path.join(__dirname, target, filename);
 
   // write the file and it's contents
-  fs.writeFileSync(newFilePath, contentArr, { flag: "w+", encoding: "utf-8" });
+  fs.writeFileSync(newFilePath, newContent, { flag: "w+", encoding: "utf-8" });
 });
